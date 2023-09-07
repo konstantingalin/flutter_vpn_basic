@@ -3,6 +3,8 @@ import 'package:flutter_vpn_basic/allScreens/home_screen.dart';
 import 'package:flutter_vpn_basic/appPreferences/app_preferences.dart';
 import 'package:get/get.dart';
 
+late Size sizeScreen;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
