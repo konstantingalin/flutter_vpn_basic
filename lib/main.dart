@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vpn_basic/allScreens/home_screen.dart';
-import 'package:flutter_vpn_basic/appPreferences/appPreferences.dart';
+import 'package:flutter_vpn_basic/appPreferences/app_preferences.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  AppPreferences.initHive();
+  await AppPreferences.initHive();
 
   runApp(const MyApp());
 }
@@ -32,4 +32,11 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+extension AppTheme on ThemeData {
+  Color get lightTextColor =>
+      AppPreferences.isModeDark ? Colors.white70 : Colors.black54;
+  Color get bottomNavigationColor =>
+      AppPreferences.isModeDark ? Colors.white12 : Colors.redAccent;
 }
