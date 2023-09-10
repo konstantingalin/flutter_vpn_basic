@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vpn_basic/appPreferences/app_preferences.dart';
 import 'package:flutter_vpn_basic/main.dart';
+import 'package:flutter_vpn_basic/widgets/custom_round_widget.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,6 +34,76 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: locationSelectionBottomNavigation(context),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomRoundWidget(
+                titleText: 'Location',
+                subTitleText: 'FREE',
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.redAccent,
+                  child: Icon(
+                    Icons.flag_circle,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              CustomRoundWidget(
+                titleText: '60 ms',
+                subTitleText: 'PING',
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.redAccent,
+                  child: Icon(
+                    Icons.graphic_eq,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          //button connect to vpn
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomRoundWidget(
+                titleText: '0 kb',
+                subTitleText: 'DOWNLOAD',
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.purpleAccent,
+                  child: Icon(
+                    Icons.arrow_circle_down,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              CustomRoundWidget(
+                titleText: '0 kbps',
+                subTitleText: 'UPLOAD',
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.black54,
+                  child: Icon(
+                    Icons.arrow_circle_up_rounded,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -46,8 +117,8 @@ class HomeScreen extends StatelessWidget {
             color: Colors.redAccent,
             padding: EdgeInsets.symmetric(horizontal: sizeScreen.width * 0.041),
             height: 62,
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(
                   CupertinoIcons.flag_circle,
                   color: Colors.white,
