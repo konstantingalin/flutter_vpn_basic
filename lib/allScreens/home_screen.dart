@@ -34,10 +34,10 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: locationSelectionBottomNavigation(context),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomRoundWidget(
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                 subTitleText: 'PING',
                 roundWidgetWithIcon: CircleAvatar(
                   radius: 32,
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: Colors.black54,
                   child: Icon(
                     Icons.graphic_eq,
                     size: 30,
@@ -68,10 +68,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-
-          //button connect to vpn
-
-          Row(
+          vpnRoundButton(),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomRoundWidget(
@@ -79,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                 subTitleText: 'DOWNLOAD',
                 roundWidgetWithIcon: CircleAvatar(
                   radius: 32,
-                  backgroundColor: Colors.purpleAccent,
+                  backgroundColor: Colors.green,
                   child: Icon(
                     Icons.arrow_circle_down,
                     size: 30,
@@ -92,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                 subTitleText: 'UPLOAD',
                 roundWidgetWithIcon: CircleAvatar(
                   radius: 32,
-                  backgroundColor: Colors.black54,
+                  backgroundColor: Colors.purpleAccent,
                   child: Icon(
                     Icons.arrow_circle_up_rounded,
                     size: 30,
@@ -149,6 +147,64 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget vpnRoundButton() {
+    return Column(
+      children: [
+        Semantics(
+          button: true,
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(100),
+            child: Container(
+              padding: const EdgeInsets.all(18),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red,
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(18),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
+                child: Container(
+                  width: sizeScreen.width * .14,
+                  height: sizeScreen.height * .14,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red,
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.power_settings_new,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Text(
+                        'Tap to Connect',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
